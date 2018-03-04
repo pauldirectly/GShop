@@ -8,7 +8,7 @@ module.exports = {
     connection: {
       database: 'goldshopdb',
       user:     'paul',
-      password: 'wongnoi1'
+      password: 'paul'
     },
     pool: {
       min: 2,

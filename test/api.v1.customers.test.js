@@ -36,7 +36,7 @@ describe(`${RESOURCE}: `, () => {
         return knex.migrate.rollback();
     })
 
-    describe.only(`List ${RESOURCE}`, () => {
+    describe(`List ${RESOURCE}`, () => {
 
         it('successfully => 200 + ok + list of all ${RESOURCE}', async () => {
             try {

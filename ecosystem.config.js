@@ -69,7 +69,7 @@ module.exports = {
 
       // Commands to be executed on the server after the repo has been cloned
       // "post-deploy" : "npm install && pm2 startOrRestart ecosystem.json --env production"
-      "post-deploy" : "cd ~/products/GShop/current; yarn && pm2 startOrRestart ecosystem.json --env production",
+      "post-deploy" : "cd ~/products/GShop/current; yarn ; pm2 startOrRestart --env production",
       
       // Environment variables that must be injected in all applications on this env
       "env"  : {

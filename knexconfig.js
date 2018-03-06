@@ -1,3 +1,5 @@
+const localSettings = require("./.local-settings");
+
 const path = require("path");
 const BASE_PATH = path.join(__dirname, "src", "server", "db" );
 
@@ -6,9 +8,9 @@ module.exports = {
   development: {
     client: 'postgresql',
     connection: {
-      database: 'goldshopdb',
-      user:     'paul',
-      password: 'paul'
+      database: localSettings.database_name || 'goldshopdb',
+      user:     localSettings.database_user || 'paul',
+      password: localSettings.database_password || 'paul'
     },
     pool: {
       min: 2,

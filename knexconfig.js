@@ -1,4 +1,3 @@
-const localSettings = require("./.local-settings");
 
 const path = require("path");
 const BASE_PATH = path.join(__dirname, "src", "server", "db" );
@@ -8,25 +7,14 @@ module.exports = {
   development: {
     client: 'postgresql',
     connection: {
-      database: localSettings.database_name || 'goldshopdb',
-      user:     localSettings.database_user || 'paul',
-      password: localSettings.database_password || 'paul'
+      database: process.env.DATABASE_NAME || 'no_db_name',
+      user:     process.env.DATABASE_USER || 'no_db_user',
+      password: process.env.DATABASE_PASSWORD || 'no_db_password'
     },
     pool: {
       min: 2,
-      max: 10
+      max: 10,
     },
-    migrations: {
-      directory : path.join( BASE_PATH, "migrations"),
-    },
-    seeds: {
-      directory : path.join( BASE_PATH, "seeds"),
-    }
-  },
-
-  development2: {
-    client: "pg",
-    connection: "postgres://paul:wongnoi1@localhost:5432/goldshopdb",
     migrations: {
       directory : path.join( BASE_PATH, "migrations"),
     },
@@ -36,10 +24,18 @@ module.exports = {
   },
 
   test: {
-    client: "pg",
-    connection: "postgres://paul:wongnoi1@localhost:5432/goldshopdb_test",
+    client: 'postgresql',
+    connection: {
+      database: `${process.env.DATABASE_NAME}_test` || 'no_db_name',
+      user:     process.env.DATABASE_USER || 'no_db_user',
+      password: process.env.DATABASE_PASSWORD || 'no_db_password'
+    },
+    pool: {
+      min: 2,
+      max: 10,
+    },
     migrations: {
-      directory : path.join( BASE_PATH, "migrations")
+      directory : path.join( BASE_PATH, "migrations"),
     },
     seeds: {
       directory : path.join( BASE_PATH, "seeds"),

@@ -1,3 +1,4 @@
+#!/usr/bin/env nodejs
 
 // main 
 const PORT = 8080 ;
